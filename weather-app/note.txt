@@ -1,0 +1,18 @@
+useEffect Hook
+useEffect hook'u, React'in işlevsel bileşenlerinde yan etkileri (side-effect) yönetmek için kullanılan bir hook'tur. Side-effect, bileşenlerin render edilmesiyle doğrudan ilgili olmayan ama bileşenlerin davranışlarını etkileyen işlemlerdir. Örneğin API çağrıları, DOM manipülasyonları, zamanlayıcılar gibi işlemler side-effect olarak sayılabilir.
+
+1. Yan Etkilerin Yönetimi: useEffect, bileşenlerin render edildikten sonra çalıştırılması gereken kodları tanımlamak için kullanılır. Örneğin, bir bileşen render edildikten sonra veri çekme işlemi yapmak için kullanılabilir
+
+2. Temizlik İşlemleri: useEffect, bir yan etkinin temizlenmesi gerektiğinde kullanabileceğiniz bir "temizlik" fonksiyonu dönebilir. Bu, bileşen unmounted olduğunda veya etkilerin güncellenmesi gerektiğinde kullanışlıdır.
+
+3. Bağımlılık Dizisi: useEffect'in bağımlılık dizisi, etkilerin ne zaman çalıştırılacağını belirler. Bu dizi, etkilerin çalıştırılmasını tetikleyecek değerleri içerir. Dizi değiştiğinde useEffect çalıştırılır.
+
+-> useEffect, iki ana parametre alır:
+
+1- Etkili Fonksiyon: Bu, yan etkilerin gerçekleştirildiği fonksiyondur. Örneğin, veri çekme veya DOM manipülasyonları gibi işlemleri yapabilirsiniz.
+
+2- Bağımlılık Dizisi (Opsiyonel): Bu diziyi geçmek, useEffect'in ne zaman çalışacağını belirler. Eğer bu dizi boş bırakılırsa, useEffect sadece bileşen ilk kez render edildiğinde çalışır. Eğer diziyi sağlamazsanız, useEffect her render'da çalışır.
+
+useEffect(myCallbackFn); -> Runs myCallbackFn effect every render.
+useEffect(myCallbackFn, [count, name]); -> Runs myCallbackFn effect only if count or name vars changed.
+useEffect(myCallbackFn, []); -> Runs myCallbackFn effect only the first time (on mount)
