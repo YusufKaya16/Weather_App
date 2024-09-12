@@ -6,13 +6,14 @@ export default function WeatherCard({
   humidity,
   precipitation,
   windSpeed,
+  icon
 }) {
   return (
     <section className="weather-show">
       <div className="weather-icon">
         <h1 className="city">{city}</h1>
         <div className="icon-box">
-          <img src={`/partly-cloudy.png`} alt="weather-icon" />
+          <img src={`/${icon}`} alt="weather-icon" />
         </div>
       </div>
       <hr className="line" />
