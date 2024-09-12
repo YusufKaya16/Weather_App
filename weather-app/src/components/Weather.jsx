@@ -7,7 +7,7 @@ import { getLatLon } from "../helpers/getLatLon";
 import { getDatas } from "../helpers/getDatas";
 import { setWeatherIcon } from "../helpers/setWeatherIcon";
 
-const API_KEY = "7808b10251073a19372d4621a25f3841";
+// const API_KEY = "7808b10251073a19372d4621a25f3841";
 
 export default function Weather() {
   const [temp, setTemp] = useState(0);
@@ -37,8 +37,10 @@ export default function Weather() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { lat, lon } = await getLatLon(city, API_KEY);
-        const { main, weather, wind } = await getDatas(lat, lon, API_KEY);
+        // eslint-disable-next-line no-undef
+        const { lat, lon } = await getLatLon(city, process.env.API_KEY);
+        // eslint-disable-next-line no-undef
+        const { main, weather, wind } = await getDatas(lat, lon, process.env.API_KEY);
 
         const { speed } = wind;
         const { humidity } = main;
