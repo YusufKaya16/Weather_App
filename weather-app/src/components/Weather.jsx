@@ -38,9 +38,7 @@ export default function Weather() {
     const fetchData = async () => {
       try {
         const { lat, lon } = await getLatLon(city, API_KEY);
-        const { main, weather, wind } = await getDatas(lat, lon, API_KEY).catch(
-          (err) => err
-        );
+        const { main, weather, wind } = await getDatas(lat, lon, API_KEY);
 
         const { speed } = wind;
         const { humidity } = main;
@@ -59,7 +57,6 @@ export default function Weather() {
     };
 
     fetchData();
-    
   }, [city]);
   // the [city] is dependence for useEffect as second parameters. First parameters is a callback function.
 
